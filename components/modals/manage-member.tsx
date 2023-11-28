@@ -38,13 +38,14 @@ import { Button } from "../ui/button";
 import { MemberRole } from "@prisma/client";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { serverWithMembersWithProfile } from "@/types";
 const ManageMemberModal = () => {
   const [LoadingId, setLoadingId] = useState("");
   const { OnOpen, isOpen, OnClose, type, data } = useModal();
 
   const router = useRouter()
   const Origin = useOrigin();
-  const { server } = data;
+  const { server } = data as { server: serverWithMembersWithProfile };
 
   const roleIconMap = {
     GUEST: null,
