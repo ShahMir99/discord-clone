@@ -8,7 +8,7 @@ const InviteCode = async ({params}: {params : {invitecode : string}}) => {
     const profile = await currentProfile()
 
     if(!profile){
-        return redirectToSignIn()
+        return redirect("/sign-in")
     }
 
     if(!params.invitecode){
